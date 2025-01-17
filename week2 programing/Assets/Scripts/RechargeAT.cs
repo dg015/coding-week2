@@ -13,11 +13,13 @@ namespace NodeCanvas.Tasks.Actions {
         private float speed;
         public float arrivalDistance;
 
+        public BBParameter<float> charge;
+
+
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
         protected override string OnInit() {
-            agentBlackboard = agent.GetComponent<Blackboard>();
-            speed = agentBlackboard.GetVariableValue<float>("speed");
+
             return null;
 		}
 
@@ -32,7 +34,6 @@ namespace NodeCanvas.Tasks.Actions {
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
             
-            float charge = agentBlackboard.GetVariableValue<float>("Charge");
 
 
             Vector3 moveDiecion = (target.position - agent.transform.position).normalized;
@@ -41,9 +42,9 @@ namespace NodeCanvas.Tasks.Actions {
             float distanceToTarget = Vector3.Distance(target.position, agent.transform.position);
             if (distanceToTarget < arrivalDistance)
             {
-                charge += chargeGainRate * Time.deltaTime;
+                charge.value += chargeGainRate * Time.deltaTime;
                 agentBlackboard.SetVariableValue("Charge", charge);
-                if (charge >= 100)
+                if (charge.value >= 100)
                 {
                     EndAction(true);
                     Debug.Log("done chargin");
