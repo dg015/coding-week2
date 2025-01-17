@@ -1,6 +1,7 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 namespace NodeCanvas.Tasks.Actions {
@@ -23,7 +24,15 @@ namespace NodeCanvas.Tasks.Actions {
 		protected override void OnExecute() {
 
 			Vector3 moveDiecion = (target.position - agent.transform.position).normalized;
-			EndAction(true);
+			agent.transform.position += moveDiecion * speed * Time.deltaTime;
+
+            float distanceToTarget = Vector3.Distance(target.position, agent.transform.position);
+            if (distanceToTarget < arrivalDistance)
+            {
+                EndAction(true);
+            }
+
+            EndAction(true);
 		}
 
 		//Called once per frame while the action is active.

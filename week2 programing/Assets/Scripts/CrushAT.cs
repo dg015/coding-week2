@@ -1,10 +1,17 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
+using UnityEngine;
 
 
 namespace NodeCanvas.Tasks.Actions {
 
 	public class CrushAT : ActionTask {
+
+		public Compactor compactor;
+		public float crushDuration;
+
+		private float timeCrushing = 0f;
+
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
@@ -16,12 +23,20 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			EndAction(true);
+			compactor.Crush();
+			timeCrushing = 0f;
+			
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
+			timeCrushing += Time.deltaTime;
 			
+			if(timeCrushing > crushDuration)
+			{
+                EndAction(true);
+				compactor.Stop();
+            }
 		}
 
 		//Called when the task is disabled.
