@@ -343,9 +343,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"speed":{"_value":3.0,"_name":"speed","_id":"6c9e8de2-8f48-40cc-b19d-41c704a2cc3b","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Charge":{"_value":100.0,"_name":"Charge","_id":"489d8fd3-b47a-4255-9da4-0649b51eded1","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_value":3.0,"_name":"speed","_id":"6c9e8de2-8f48-40cc-b19d-41c704a2cc3b","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":100.0,"_name":"Charge","_id":"489d8fd3-b47a-4255-9da4-0649b51eded1","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &341929445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,19 +367,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"target":1,"speed":3.0,"arrivalDistance":0.2,"$type":"NodeCanvas.Tasks.Actions.approachAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"a-approach","_position":{"x":-724.2662,"y":287.8965},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"compactor":2,"crushDuration":5.0,"$type":"NodeCanvas.Tasks.Actions.CrushAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"a-dash","_position":{"x":-568.423,"y":138.1554},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"target":3,"speed":3.0,"arrivalDistance":0.2,"$type":"NodeCanvas.Tasks.Actions.approachAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"b-approach","_position":{"x":-328.9396,"y":312.5252},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"compactor":4,"crushDuration":5.0,"$type":"NodeCanvas.Tasks.Actions.CrushAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"b-crush","_position":{"x":-520.2411,"y":485.2693},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_position":{"x":-581.0,"y":-7.0},"$type":"NodeCanvas.StateMachines.AnyState","$id":"4"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"target":1,"arrivalDistance":0.2,"chargeUseRate":8.0,"$type":"NodeCanvas.Tasks.Actions.approachAT"}]},"_color":{"r":0.4553784,"g":1.0,"b":0.3215686,"a":1.0},"_name":"a-approach","_position":{"x":-1012.796,"y":315.2118},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"compactor":2,"crushDuration":5.0,"chargeUseRate":12.0,"$type":"NodeCanvas.Tasks.Actions.CrushAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"a-dash","_position":{"x":-641.743,"y":-129.247},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"target":3,"arrivalDistance":0.2,"chargeUseRate":8.0,"$type":"NodeCanvas.Tasks.Actions.approachAT"}]},"_color":{"r":0.3215686,"g":0.7098039,"b":0.227451,"a":1.0},"_name":"b-approach","_position":{"x":-142.0454,"y":283.7722},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"compactor":4,"crushDuration":5.0,"chargeUseRate":12.0,"$type":"NodeCanvas.Tasks.Actions.CrushAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"b-crush","_position":{"x":-364.9751,"y":591.6552},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_actionList":{"executionMode":1,"actions":[{"target":5,"arrivalDistance":0.2,"$type":"NodeCanvas.Tasks.Actions.RechargeAT"}]},"_color":{"r":1.0,"g":0.759037,"a":1.0},"_name":"Recharge","_position":{"x":-511.9364,"y":325.8189},"$type":"NodeCanvas.StateMachines.ActionState","$id":"4"},{"_position":{"x":-581.0,"y":-7.0},"$type":"NodeCanvas.StateMachines.AnyState"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.CriticalBattery"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.CriticalBattery"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.CriticalBattery"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.CriticalBattery"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 1366323902}
   - {fileID: 2072021876}
   - {fileID: 821430103}
   - {fileID: 1981231492}
+  - {fileID: 546998561}
   _boundGraphSource:
     _version: 3.31
     _category: 
     _comments: 
-    _translation: {x: 865, y: 73}
-    _zoomFactor: 1
+    _translation: {x: 634, y: 231}
+    _zoomFactor: 0.6032595
   _firstActivation: 0
   _enableAction: 0
   _disableAction: 0
